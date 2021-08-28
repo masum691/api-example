@@ -1,7 +1,11 @@
+
+#countries{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
 .country{
     background-color: purple;
     padding: 10px;
-    width: 50%;
     margin: 10px;
     border-radius: 5px;
     color: white;
