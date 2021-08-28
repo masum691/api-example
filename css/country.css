@@ -1,0 +1,9 @@
+.country{
+    background-color: purple;
+    padding: 10px;
+    width: 50%;
+    margin: 10px;
+    border-radius: 5px;
+    color: white;
+    font-family: sans-serif;
+}

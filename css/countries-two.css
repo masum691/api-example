@@ -1,0 +1,10 @@
+
+.country{
+    background-color: limegreen;
+    color: white;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 5px;
+    font-family: tahoma;
+    width: 50%;
+}
