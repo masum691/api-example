@@ -51,4 +51,5 @@ const displayCountryDetail = country => {
         <p> ${country.alpha3Code}</p>
         <img width="200px" src="${country.flag}">
     `
+    document.getElementById('country-detail').style.display = 'block';
 }
