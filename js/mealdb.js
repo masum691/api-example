@@ -13,12 +13,14 @@ const searchFood = () => {
 
 const displaySearchResults = meals => {
     const searchResult = document.getElementById('search-result');
+    // clear data (not recomended);
+    searchResult.innerHTML = '';
     meals.forEach(meal => {
         console.log(meal);
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
-        <div class="card  border-0 shadow-lg">
+        <div onclick="loadMealDetail(${meal.idMeal})" class="card  border-0 shadow-lg">
             <img src="${meal.strMealThumb}" class="card-img-top p-3 border-rounded" alt="img">
             <div class="card-body">
               <h5 class="card-title">${meal.strMeal}</h5>
@@ -29,3 +31,27 @@ const displaySearchResults = meals => {
         searchResult.appendChild(div);
     });
 };
+
+const loadMealDetail = mealId => {
+    // console.log(mealId);
+    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayMealDetails(data.meals[0]))
+}
+
+const displayMealDetails = meal => {
+    console.log(meal);
+    const mealDetails = document.getElementById('meal-detail');
+    const div = document.createElement('div');
+    div.classList.add('card');
+    div.innerHTML = `
+    <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
+    <div class="card-body mt-5">
+      <h5 class="card-title">${meal.strMeal}</h5>
+      <p class="card-text">${meal.strInstructions}</p>
+      <a href="${meal.strYoutube}" class="btn btn-primary">Go somewhere</a>
+    </div>
+    `
+    mealDetails.appendChild(div);
+}
